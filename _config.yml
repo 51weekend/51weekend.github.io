@@ -15,7 +15,6 @@ author:
     facebook:
     googleplus:
     weibo: chenng
-qiniudn: //havee.qiniudn.com                # //{bucket}.qiniudn.com
 atom_path: /atom.xml
 rss_path: /rss.xml
 
@@ -28,7 +27,7 @@ permalink: /:categories/:year-:month/:title.html
 # comment
 comments:
     duoshuo:
-        name:                               # short name
+        name: 51weekend                              # short name
         rcomments:
             num: 10
             avatar: 0
