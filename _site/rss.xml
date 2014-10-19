@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <channel>
-    <title>Jekyll template demo</title>
-    <description>jekyll template demo.</description>
+    <title>程冬的博客</title>
+    <description>程冬的博客.</description>
     <link></link>
-    <lastBuildDate>Sun, 19 Oct 2014 19:34:38 +0800</lastBuildDate>
-    <pubDate>Sun, 19 Oct 2014 19:34:38 +0800</pubDate>
+    <lastBuildDate>Sun, 19 Oct 2014 20:03:05 +0800</lastBuildDate>
+    <pubDate>Sun, 19 Oct 2014 20:03:05 +0800</pubDate>
     <ttl>1800</ttl>
 
     

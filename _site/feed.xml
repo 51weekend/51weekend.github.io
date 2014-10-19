@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jekyll template demo</title>
-    <description>jekyll template demo.</description>
-    <link>http:////ihavee.github.io/</link>
-    <atom:link href="http:////ihavee.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 19 Oct 2014 19:34:38 +0800</pubDate>
-    <lastBuildDate>Sun, 19 Oct 2014 19:34:38 +0800</lastBuildDate>
+    <title>程冬的博客</title>
+    <description>程冬的博客.</description>
+    <link>http:////51weekend.github.io/</link>
+    <atom:link href="http:////51weekend.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sun, 19 Oct 2014 20:03:05 +0800</pubDate>
+    <lastBuildDate>Sun, 19 Oct 2014 20:03:05 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -23,8 +23,8 @@
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sat, 16 Aug 2014 00:00:00 +0800</pubDate>
-        <link>http:////ihavee.github.io/demo/2014-08/test-post.html</link>
-        <guid isPermaLink="true">http:////ihavee.github.io/demo/2014-08/test-post.html</guid>
+        <link>http:////51weekend.github.io/demo/2014-08/test-post.html</link>
+        <guid isPermaLink="true">http:////51weekend.github.io/demo/2014-08/test-post.html</guid>
         
         <category>test</category>
         
@@ -107,8 +107,8 @@
 &lt;/tbody&gt;&lt;/table&gt;
 </description>
         <pubDate>Wed, 13 Aug 2014 00:00:00 +0800</pubDate>
-        <link>http:////ihavee.github.io/demo/2014-08/hello-jekyll.html</link>
-        <guid isPermaLink="true">http:////ihavee.github.io/demo/2014-08/hello-jekyll.html</guid>
+        <link>http:////51weekend.github.io/demo/2014-08/hello-jekyll.html</link>
+        <guid isPermaLink="true">http:////51weekend.github.io/demo/2014-08/hello-jekyll.html</guid>
         
         <category>test</category>
         
@@ -193,8 +193,8 @@
 &lt;/tbody&gt;&lt;/table&gt;
 </description>
         <pubDate>Tue, 12 Aug 2014 00:00:00 +0800</pubDate>
-        <link>http:////ihavee.github.io/demo/2014-08/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http:////ihavee.github.io/demo/2014-08/welcome-to-jekyll.html</guid>
+        <link>http:////51weekend.github.io/demo/2014-08/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http:////51weekend.github.io/demo/2014-08/welcome-to-jekyll.html</guid>
         
         <category>test</category>
         
