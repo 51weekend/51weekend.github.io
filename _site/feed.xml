@@ -5,9 +5,69 @@
     <description>程冬的博客.</description>
     <link>http:////51weekend.github.io/</link>
     <atom:link href="http:////51weekend.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 19 Oct 2014 23:22:40 +0800</pubDate>
-    <lastBuildDate>Sun, 19 Oct 2014 23:22:40 +0800</lastBuildDate>
+    <pubDate>Fri, 24 Oct 2014 00:02:43 +0800</pubDate>
+    <lastBuildDate>Fri, 24 Oct 2014 00:02:43 +0800</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>如何构建一个完善的数据迁移程序</title>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;自己构建一个数据迁移程序的前提&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+&lt;li&gt;不是简单的数据搬家、里面有比较复杂的业务逻辑，&lt;/li&gt;
+&lt;li&gt;一些数据迁移的成熟产品不适用你的场景.&lt;/li&gt;
+&lt;li&gt;你可能做的是在线的数据迁移。业务场景不允许你将数据抽取到线下库再处理.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;在自己需要动手开发一个数据迁移程序时、那些点是需要我们必须考虑的呢？怎么才能构建一个完善的迁移程序。下面根据自己的经验。谈几点自己的看法。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;1. 重中之重的是：不能影响线上的业务&lt;/h3&gt;
+
+&lt;p&gt;怎么才能做到不影响线上的业务呢，那就需要我们尽量的去减少对db的资源消耗，可以做下面几个方面入手&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;1. 如果你的线上有一个主库和从库，并且从库只用于灾备，那就太好了，你可以直接从你的备库去抽取数据。
+2. DB连接数控制.以实例为单位建立连接，而不是以库为单位。根据分库规则在表名前添加库名称，并且用连接池管理你的连接.
+3. 从整体上考虑sql优化，内存归并数据、减少sql查询次数，提高查询效率.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;2. 迁移程序的水平扩展能力&lt;/h3&gt;
+
+&lt;p&gt;如果你的数据量很大，单机的处理速度达不到你的要求，你想通过添加机器的方式、并行的进行数据迁移，那这点就需要你的迁移程序来支持。并且要保证多个应用程序之间不会做重复的工作&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;首先，可以对进行迁移的表按数据的id或者时间段进行迁移任务的切分，每个任务负责不同范围的数据迁移，这样多个任务就可以并发执行。
+
+如果你的数据本身是做了水平切分，数据分布在不同的数据库中，那么你有多了一种选择，你可以让一个任务负责迁移一个db的数据.这样多个数据库的迁移任务就可以并行
+
+你可能需要做的就是、告诉你的应用程序，当前负责处理数据迁移总共有多少台机器，而你可以负责的是那几个数据库的数据迁移工作，你需要给你的应用程序提前分好工，让他们负责处理相应的DB。或者相应的数据段。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;3. 故障恢复、断点迁移功能的支持&lt;/h3&gt;
+
+&lt;p&gt;你是否想过，如果你的迁移程序，运行到一半的时候，机器突然断电，或者程序异常退出，接下来，你应该怎么办，从头再来？
+这时候，我们就不得不考虑程序从故障中恢复的功能，也就是说，重新启动程序后，他可以接着上次做的地方继续做，不用重头再来，支持断点迁移的功能。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;做法很简单,其实就是我们的任务在执行的过程中，将我们的进度持久化，比如迁移到的id，或者时间点。考虑性能问题的话，我们可以将迁移进度记录在内存，定期同步到持久化存储，比如文件中。程序异常退出重启后，可以从文件中读取进度，接着上次的地方开始.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;4. 异常重试&lt;/h3&gt;
+
+&lt;p&gt;在数据迁移的过程中，总有一些异常情况发生，当异常发生时，我们需要保证数据的完整性，那么就需要就需要将这些异常的数据记录下来，让补偿逻辑对这些数据进行重试.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;可以日志框架很容易实现这一点，如果你使用的是java，那么就可以使用log4j，当出现异常的时候，将数据对象序列化，记录到日志文件，利用日志文件的大小转储功能，将一定大小的文件转存到一个待处理目录，补偿逻辑监听待处理目录，如果有文件产生，就读取文件记录，反序列化进行处理.处理完成后，再将文件转走。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;5. 任务运行期的进度、异常监控&lt;/h3&gt;
+
+&lt;p&gt;当任务开始执行时，我们需要知道他目前迁移的进度，任务是否还在正常执行，是否有异常情况发生？&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;利用好日志，就能很好的做到这一点，可以定时输出迁移到的关键信息，如果id.就能很好的反馈进度。
+出现异常情况，则进行相应的异常信息输出，不要吝啬日志的使用，程序运行起来后，给外部一定的反馈
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        <pubDate>Thu, 23 Oct 2014 00:00:00 +0800</pubDate>
+        <link>http:////51weekend.github.io/%E6%9E%B6%E6%9E%84/2014-10/how-to-build-hih--availabily-data-migration-program.html</link>
+        <guid isPermaLink="true">http:////51weekend.github.io/%E6%9E%B6%E6%9E%84/2014-10/how-to-build-hih--availabily-data-migration-program.html</guid>
+        
+        <category>架构 分布式 数据迁移</category>
+        
+        
+        <category>架构</category>
+        
+      </item>
     
       <item>
         <title>测试文章</title>

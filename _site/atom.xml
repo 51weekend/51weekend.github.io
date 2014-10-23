@@ -4,12 +4,38 @@
   <title>程冬的博客</title>
   <link href="//atom.xml" rel="self"/>
   <link href=""/>
-  <updated>2014-10-19T23:22:40+08:00</updated>
+  <updated>2014-10-24T00:02:43+08:00</updated>
   <id></id>
   <author>
     <name>程冬</name>
   </author>
 
+  
+  <entry>
+    <title>如何构建一个完善的数据迁移程序</title>
+    <link href="/%E6%9E%B6%E6%9E%84/2014-10/how-to-build-hih--availabily-data-migration-program.html"/>
+    <updated>2014-10-23T00:00:00+08:00</updated>
+    <id>/%E6%9E%B6%E6%9E%84/2014-10/how-to-build-hih--availabily-data-migration-program</id>
+    <content type="html">
+自己构建一个数据迁移程序的前提
+
+
+
+不是简单的数据搬家、里面有比较复杂的业务逻辑，
+一些数据迁移的成熟产品不适用你的场景.
+你可能做的是在线的数据迁移。业务场景不允许你将数据抽取到线下库再处理.
+
+
+
+在自己需要动手开发一个数据迁移程序时、那些点是需要我们必须考虑的呢？怎么才能构建一个完善的迁移程序。下面根据自己的经验。谈几点自己的看法。
+
+
+1. 重中之重的是：不能影响线上的业务
+
+怎么才能做到不影响线上的业务呢，那就需要我们尽量的去减少对db的资源消耗，可以做下面几个方面入手
+1. 如果你的线上有一个主库和从库，并且从库只用于灾备，那就太好了，你可以直接从你的备库去抽取数据。
+2...</content>
+  </entry>
   
   <entry>
     <title>测试文章</title>
