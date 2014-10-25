@@ -11,27 +11,6 @@
     <priority>0.8</priority>
   </url>
   
-  <url>
-    <loc>http:////51weekend.github.io/demo/2014-08/test-post.html</loc>
-    <changefreq>daily</changefreq>
-    <lastmod>2014-08-16T00:00:00+08:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>http:////51weekend.github.io/demo/2014-08/hello-jekyll.html</loc>
-    <changefreq>daily</changefreq>
-    <lastmod>2014-08-13T00:00:00+08:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>http:////51weekend.github.io/demo/2014-08/welcome-to-jekyll.html</loc>
-    <changefreq>daily</changefreq>
-    <lastmod>2014-08-12T00:00:00+08:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-  
 
   <url>
 	<loc>http:////51weekend.github.io</loc>
