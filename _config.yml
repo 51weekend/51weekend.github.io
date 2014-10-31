@@ -8,7 +8,7 @@ blog:
     name:                                              程冬的博客
     description:                                       记录技术、生活、感悟
     title:                                               程冬的博客
-    url:                                                 blog.8hour.me
+    url:                                                 http://blog.8hour.me/
     duoshuo:                                             51weekend
     tongji:                                              # 百度统计ID
     qiniu:                                               # 七牛云地址
