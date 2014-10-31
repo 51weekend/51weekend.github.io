@@ -1,47 +1,23 @@
-# Site settings
-title: "程冬的博客"
-description: "程冬的博客."
-keywords: "分布式, 软件架构, java"
-baseurl: ""
-url: "http:////51weekend.github.io"
+markdown: kramdown
 highlighter: pygments
-paginate: 5
+permalink: blog/:year/:month/:day/:title.html
+paginate: 6
+paginate_path: page/:num
+
+blog:
+    name:                                              程冬的博客
+    description:                                       记录技术、生活、感悟
+    title:                                               程冬的博客
+    url:                                                 blog.8hour.me
+    duoshuo:                                             51weekend
+    tongji:                                              # 百度统计ID
+    qiniu:                                               # 七牛云地址
 author:
-    name: 程冬
-    github: 51weekend
-    email:
-    gitcafe: Havee
-    twitter:
-    facebook:
-    googleplus:
-    weibo: chenng
-atom_path: /atom.xml
-rss_path: /rss.xml
-
-# Build settings
-markdown: redcarpet
-redcarpet:
-    extensions: ["fenced_code_blocks", "tables", "highlight", "strikethrough"]
-permalink: /:categories/:year-:month/:title.html
-
-# comment
-comments:
-    duoshuo:
-        name: 51weekend                              # short name
-        rcomments:
-            num: 10
-            avatar: 0
-            time: 0
-            title: 0
-            admin: 0
-            length: 26
-# 网站统计
-analytics:
-    baidu:
-        siteid:                             # 百度统计 js 代码后的字符串
-
-# blogroll
-blogroll: true
-brlist:
-    - text: "酷壳"
-      url : http://coolshell.cn/
+    name:                                                程冬
+    email:                                               51weekend@gmail.com
+    weibo:                                               http://www.weibo.com/chenng
+    github:                                              https://github.com/51weekend
+    logo:                                                # logo地址
+    douban:
+        name:                                            http://www.douban.com/people/chengdong/
+        key:                                             06348399e5f672e0129d8acdb1e358a0

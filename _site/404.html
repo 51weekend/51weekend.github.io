@@ -1,36 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Page not found - 程冬的博客</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/favicon.png">
-
-    <script type="text/javascript">
-      function countDown(secs,surl){
-        //alert(surl);
-        var jumpto = document.getElementById('jumpto');
-        jumpto.innerHTML=secs;
-        if(--secs>0){
-          setTimeout("countDown("+secs+",'"+surl+"')",1000);
-        }
-        else{
-          location.href=surl;
-        }
-      }
-    </script>
-
-    <style type="text/css">
-      .center { float: none; margin-left: auto; margin-right: auto; text-align: center; }
-    </style>
-  </head>
-  <body>
-    <div class="center">
-      <h1>404</h1>
-      <p>There isn't a Page here.</p>
-      <p>Jump to <a href="/">程冬的博客</a> after <span id="jumpto" style="font-weight: bold"> 5 </span> seconds,</p>
-      <script type="text/javascript">countDown(5,'/');</script>
-      <p>or click <a href="/" target="_parent"><span style="font-weight: bold">Here</span></a> to return.</p>
-    </div>
-  </body>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+  <title>找不到页面了...</title>
+  <link rel="stylesheet" href="/res/css/404.css">
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+</head>
+<body>
+  <div id="container">
+    <img src="/res/img/404/404.png" class="png"/>
+  </div>
+  <div class="tips">
+    <p>找不到页面了...</p>
+    <p>一定是你打开方式不对...</p>
+    <p id="view"/>
+  </div>
+  <div id="cloud" class="png"></div>
+</body>
+<script>
+  var t = 5;
+  setInterval("testTime()", 1000);
+  function testTime() {
+    view.innerHTML = t + " 秒后跳转至首页...";
+    if(t == 0) {
+      location="blog.8hour.me";
+    }
+    t--;
+  }
+</script>
 </html>
