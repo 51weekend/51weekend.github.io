@@ -1,7 +1,8 @@
 ---
 layout: post
-title: java日志输出规范
-category: 
+title: java日志输出规范 
+category: 规范
+tags: [技术 java日志规范]
 date: 2014-11-01
 ---
 
